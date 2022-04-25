@@ -1,6 +1,6 @@
-package com.quintrix.jfs.quintrixspring;
+package com.quintrix.jfs.quintrixspring.practice;
 
-public class VideoGame {
+public class VideoGameTest {
   private String title;
   private String studio;
   private long year;
@@ -10,7 +10,7 @@ public class VideoGame {
   private Boolean pc;
 
   // Constructor
-  public VideoGame(String title, String studio, long year, Boolean multiPlayer, Boolean xbox,
+  public VideoGameTest(String title, String studio, long year, Boolean multiPlayer, Boolean xbox,
       Boolean playstation, Boolean pc) {
     super();
     this.title = title;
