@@ -9,4 +9,6 @@ public interface VideoGameService {
   VideoGame addGame(VideoGame videogame);
 
   List<VideoGame> getAllGames();
+
+  VideoGame getById(Long id);
 }

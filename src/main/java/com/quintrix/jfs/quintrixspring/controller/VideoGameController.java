@@ -2,7 +2,10 @@ package com.quintrix.jfs.quintrixspring.controller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,13 +26,20 @@ public class VideoGameController {
 
   // Post to DB
   @PostMapping("/game/add")
-  public VideoGame addGame(@RequestBody VideoGame videogame) {
-    return videogameservice.addGame(videogame);
+  public ResponseEntity<VideoGame> addGame(@RequestBody VideoGame videogame) {
+    return new ResponseEntity<VideoGame>(videogameservice.addGame(videogame), HttpStatus.CREATED);
   }
 
   // return all games
   @GetMapping("/game/all")
   public List<VideoGame> getAllGames() {
     return videogameservice.getAllGames();
+  }
+
+  // Get Game By Id
+  @GetMapping("game/{id}")
+  public ResponseEntity<VideoGame> getGameById(@PathVariable("id") Long id) {
+    return new ResponseEntity<VideoGame>(videogameservice.getById(id), HttpStatus.OK);
+
   }
 }
