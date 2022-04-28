@@ -55,7 +55,8 @@ public class VideoGameController {
 
   // Delete Game
   @DeleteMapping("/game/{id}/delete")
-  public void DeleteGame(@PathVariable("id") Long id) {
+  public ResponseEntity<String> deleteGame(@PathVariable("id") Long id) {
     videogameservice.deleteGame(id);
+    return new ResponseEntity<String>("Video Game has been deleted successfully", HttpStatus.OK);
   }
 }

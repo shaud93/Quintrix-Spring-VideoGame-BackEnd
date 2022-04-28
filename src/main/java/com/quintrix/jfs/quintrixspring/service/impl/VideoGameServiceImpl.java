@@ -54,6 +54,7 @@ public class VideoGameServiceImpl implements VideoGameService {
 
   @Override
   public void deleteGame(Long id) {
+    getById(id);
     Repository.deleteById(id);
   }
 
