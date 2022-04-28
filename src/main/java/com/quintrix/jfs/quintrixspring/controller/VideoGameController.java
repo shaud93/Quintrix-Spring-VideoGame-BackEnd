@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.quintrix.jfs.quintrixspring.model.VideoGame;
@@ -44,7 +45,7 @@ public class VideoGameController {
   }
 
   // Update Game
-  @PostMapping("game/{id}/update")
+  @PutMapping("game/{id}/update")
   public ResponseEntity<VideoGame> updateGame(@RequestBody VideoGame videogame,
       @PathVariable("id") Long id) {
     return new ResponseEntity<VideoGame>(videogameservice.UpdateGame(videogame, id),
