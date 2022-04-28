@@ -11,4 +11,6 @@ public interface VideoGameService {
   List<VideoGame> getAllGames();
 
   VideoGame getById(Long id);
+
+  VideoGame UpdateGame(VideoGame videogame, Long id);
 }
