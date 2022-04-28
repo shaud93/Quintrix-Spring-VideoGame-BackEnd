@@ -42,4 +42,12 @@ public class VideoGameController {
     return new ResponseEntity<VideoGame>(videogameservice.getById(id), HttpStatus.OK);
 
   }
+
+  // Update Game
+  @PostMapping("game/{id}/update")
+  public ResponseEntity<VideoGame> updateGame(@RequestBody VideoGame videogame,
+      @PathVariable("id") Long id) {
+    return new ResponseEntity<VideoGame>(videogameservice.UpdateGame(videogame, id),
+        HttpStatus.CREATED);
+  }
 }
