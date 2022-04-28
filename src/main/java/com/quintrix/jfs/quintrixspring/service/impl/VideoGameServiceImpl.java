@@ -39,17 +39,22 @@ public class VideoGameServiceImpl implements VideoGameService {
 
   @Override
   public VideoGame UpdateGame(VideoGame videogame, Long id) {
-    VideoGame updateGame = getById(id);
+    VideoGame update = getById(id);
 
-    updateGame.setMultiPlayer(videogame.getMultiPlayer());
-    updateGame.setPc(videogame.getPc());
-    updateGame.setPlayStation(videogame.getPlayStation());
-    updateGame.setRelease_year(videogame.getRelease_year());
-    updateGame.setStudio(videogame.getStudio());
-    updateGame.setTitle(videogame.getTitle());
-    updateGame.setXbox(videogame.getXbox());
-    Repository.save(updateGame);
-    return updateGame;
+    update.setMultiPlayer(videogame.getMultiPlayer());
+    update.setPc(videogame.getPc());
+    update.setPlayStation(videogame.getPlayStation());
+    update.setRelease_year(videogame.getRelease_year());
+    update.setStudio(videogame.getStudio());
+    update.setTitle(videogame.getTitle());
+    update.setXbox(videogame.getXbox());
+    Repository.save(update);
+    return update;
+  }
+
+  @Override
+  public void deleteGame(Long id) {
+    Repository.deleteById(id);
   }
 
 }
